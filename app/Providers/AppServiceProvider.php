@@ -1,6 +1,6 @@
 <?php
 
-namespace Moviereview\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

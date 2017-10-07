@@ -2,22 +2,43 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+    <div class="row col-md-12">
+        <div class="welcome_username">
+            <h1>Hi, {{ Auth::user()->name }}</h1>
         </div>
     </div>
+
+    <!-- foreach loop door db -->
+    <div class="content col-md-12">
+
+        <form method="POST" action="" class="search">
+            {{ csrf_field() }}
+            <div class="form-group col-md-5 input-group">
+                <input name="body" placeholder="Search for a movie" class="form-control">{{old('body')}}</input>
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button">Search</button>
+                </span>
+            </div>
+        </form>
+
+        <div class="col-md-4 movie">
+            <img src="http://via.placeholder.com/300x400" class="rounded mx-auto d-block" alt="...">
+            <h3>Title of the movie</h3>
+            <a href="" class="">More information</a>
+        </div>
+
+        <div class="col-md-4 movie">
+            <img src="http://via.placeholder.com/300x400" class="rounded mx-auto d-block" alt="...">
+            <h3>Title of the movie</h3>
+            <a href="" class="">More information</a>
+        </div>
+
+        <div class="col-md-4 movie">
+            <img src="http://via.placeholder.com/300x400" class="rounded mx-auto d-block" alt="...">
+            <h3>Title of the movie</h3>
+            <a href="" class="">More information</a>
+        </div>
+    </div>
+
 </div>
 @endsection

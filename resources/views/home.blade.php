@@ -21,20 +21,26 @@
             </div>
         </form>
 
-        <div class="col-md-4 movie">
-            <img src="http://via.placeholder.com/300x400" class="rounded mx-auto d-block" alt="...">
+        <div class="col-md-3 movie">
+            <img src="http://via.placeholder.com/220x350" class="rounded mx-auto d-block" alt="...">
             <h3>Title of the movie</h3>
             <a href="" class="">More information</a>
         </div>
 
-        <div class="col-md-4 movie">
-            <img src="http://via.placeholder.com/300x400" class="rounded mx-auto d-block" alt="...">
+        <div class="col-md-3 movie">
+            <img src="http://via.placeholder.com/220x350" class="rounded mx-auto d-block" alt="...">
             <h3>Title of the movie</h3>
             <a href="" class="">More information</a>
         </div>
 
-        <div class="col-md-4 movie">
-            <img src="http://via.placeholder.com/300x400" class="rounded mx-auto d-block" alt="...">
+        <div class="col-md-3 movie">
+            <img src="http://via.placeholder.com/220x350" class="rounded mx-auto d-block" alt="...">
+            <h3>Title of the movie</h3>
+            <a href="" class="">More information</a>
+        </div>
+
+        <div class="col-md-3 movie">
+            <img src="http://via.placeholder.com/220x350" class="rounded mx-auto d-block" alt="...">
             <h3>Title of the movie</h3>
             <a href="" class="">More information</a>
         </div>

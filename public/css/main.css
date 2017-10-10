@@ -3,20 +3,45 @@ html, body {
     color: #636b6f;
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 100;
-    height: 100vh;
-    margin: 0;
 }
 
 .content {
     margin-top: 5%;
+    white-space: nowrap;
 }
 
 .movie {
 	margin: 0 0 100px 0;
 }
 
+.welcome {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.movie h4 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: auto;
+}
+
 .search {
 	margin-bottom:50px;
 	padding-right: 15px;
 	padding-left: 15px;
+}
+
+img.rounded.mx-auto.d-block {
+    max-width: 100%;
+    min-height: 310px;
+    width: 100%;
+}
+
+.description_text h1 {
+    margin: 0;
+}
+
+.description_text p{
+    white-space: pre-line;
+    margin-top: 20px;
 }

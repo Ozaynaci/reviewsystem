@@ -11,8 +11,10 @@
 |
 */
 
-Auth::routes();
+Route::group(['middleware' => ['web']], function() {
+	Auth::routes();
 
-Route::get('/', 'HomeController@index');
-Route::get('/movies', 'MoviesController@index');
-Route::get('/movies/{movie}', 'MoviesController@show');
+	Route::get('/', 'HomeController@index');
+	Route::get('/movies', 'MoviesController@index');
+	Route::get('/movies/{movie}', 'MoviesController@show');
+});

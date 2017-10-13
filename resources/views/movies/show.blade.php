@@ -10,6 +10,7 @@
         </div>
         <div class="col-md-7 col-md-offset-1 description_text">
             <h1> {{ $movie->title }} </h1>
+            <span> {{ $movie->year }} </span>
             <p> {{ $movie->body }} </p>
         </div>
 

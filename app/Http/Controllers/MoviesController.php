@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Movie;
+use App\User;
 use Illuminate\Http\Request;
 
 class MoviesController extends Controller
@@ -11,6 +12,11 @@ class MoviesController extends Controller
 	public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function roles() {
+
+        
     }
 
     public function index()

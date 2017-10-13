@@ -18,6 +18,7 @@ class CreateReviewsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('movie_id')->unsigned()->index();
             $table->text('body');
+            $table->integer('rating');
             $table->timestamps();
         });
     }

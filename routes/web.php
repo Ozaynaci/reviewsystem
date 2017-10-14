@@ -17,5 +17,8 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('/', 'HomeController@index');
 	Route::get('/movies', 'MoviesController@index');
 	Route::get('/movies/{movie}', 'MoviesController@show');
-	Route::get('/admin', 'MoviesController@roles');
+
+	Route::post('movies/{movie}/reviews', 'ReviewsController@add');
+
+	//Route::get('/admin', 'MoviesController@roles');
 });

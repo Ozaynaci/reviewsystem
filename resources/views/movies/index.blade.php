@@ -27,8 +27,7 @@
             <div class="col-md-3 movie">
                 <img src="{{ $movie->image_url }}" class="rounded mx-auto d-block" alt="...">
                 <h4>{{ $movie->title }}</h4>
-                <span>{{ $movie->year }}</span>
-                <a href="{{ $movie->path() }}" class="">More information</a>
+                <a href="{{ $movie->path() }}">More information</a>
             </div>
 
         @endforeach

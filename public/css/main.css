@@ -14,6 +14,14 @@ html, body {
 	margin: 0 0 100px 0;
 }
 
+.movie_image {
+    margin-bottom: 50px;
+}
+
+.movie a {
+    margin-top: 10px;
+}
+
 .welcome {
     padding-left: 15px;
     padding-right: 15px;
@@ -41,7 +49,43 @@ img.rounded.mx-auto.d-block {
     margin: 0;
 }
 
-.description_text p{
+.description_info {
+    margin-top: 20px;
+}
+
+.description_text p {
     white-space: pre-line;
     margin-top: 20px;
+}
+
+.reviews {
+    margin-top: 40px;
+    border-top: 2px solid #eee;
+    padding-top: 40px;
+}
+
+.wrapper {
+    margin: 0 -50px;
+}
+
+.rating {
+    width: 5%;
+}
+
+.review_block {
+    margin: 40px !important;
+}
+
+.review_block p {
+    white-space: pre-line;
+    font-style: italic;
+}
+
+.review_block span::before {
+    content: "\f006";
+    font-family: 'FontAwesome';
+}
+
+.form_block {
+    margin-bottom: 80px;
 }

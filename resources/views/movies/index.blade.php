@@ -4,8 +4,16 @@
 <div class="container">
     <div class="col-md-12">
         <div class="welcome">
-            <h1>Hi, {{ Auth::user()->name }}</h1>
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">Hi, {{ Auth::user()->name }}!</h4>
+                <hr>
+                <p>You have been successfully logged in. Browse trough the collection of movies and write a review!</p>
+            </div>
         </div>
+
+        @if ( Auth::user()->role == 0 )
+            Hi admin
+        @endif
     </div>
 
     <div class="row-fluid content col-md-12">

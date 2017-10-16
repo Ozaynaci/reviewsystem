@@ -19,6 +19,9 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('/movies/{movie}', 'MoviesController@show');
 
 	Route::post('/movies/{movie}/', 'ReviewsController@add');
-
-	//Route::get('/admin', 'MoviesController@roles');
 });
+
+Route::get('admin', ['middleware' => 'admin', function()
+{
+	return view('admin.index');
+}]);

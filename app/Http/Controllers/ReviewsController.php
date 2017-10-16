@@ -11,6 +11,8 @@ class ReviewsController extends Controller
 {
     public function add(Request $request, Movie $movie) {
 
+    	$this->validate($request, ['body' => 'required|min:10', 'rating' => 'required|max:2']);
+
     	$review = new Review;
     	$review->by(Auth::user());
     	$review->body = $request->body;

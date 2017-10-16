@@ -29,9 +29,18 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Moviereview') }}
-                    </a>
+                 
+
+                        <a class="navbar-brand" 
+                            @guest 
+                                href="{{ url('/') }}">
+                            @else
+                                href="{{ url('/movies') }}">
+                            @endguest
+
+                            {{ config('app.name', 'MovieCheck') }}
+                        </a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

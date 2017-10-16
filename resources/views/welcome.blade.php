@@ -6,7 +6,15 @@
 
     <div class="col-md-12">
         <div class="welcome">
-            <h1>Please login to review</h1>
+
+            @guest
+
+                <div class="alert alert-warning" role="alert">
+                    Please login to review
+                </div>
+                
+            @endguest
+
         </div>
     </div>
 

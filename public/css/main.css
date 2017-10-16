@@ -69,7 +69,9 @@ img.rounded.mx-auto.d-block {
 }
 
 .review_block {
-    margin: 40px !important;
+    margin: 30px 50px !important;
+    padding: 30px !important;
+    background-color: #eee;
 }
 
 .review_block p {
@@ -97,4 +99,23 @@ img.rounded.mx-auto.d-block {
 
 .username_review {
     margin-left:10px;
+}
+
+.rating h4::before {
+    content: "\f006";
+    font-family: 'FontAwesome';
+}
+
+.alert.alert-danger {
+    margin-left: 15px;
+}
+
+.review_block p.pull-right {
+    font-style: normal;
+    font-weight: 900;
+    overflow: auto;
+    width: 72px;
+    text-align: right;
+    margin-top: -10px;
+    font-size: 10px;
 }

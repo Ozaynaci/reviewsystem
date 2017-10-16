@@ -16,7 +16,7 @@ class MoviesController extends Controller
     }
 
     public function roles() {
-
+        return view('admin.index');
         
     }
 

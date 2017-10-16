@@ -15,7 +15,7 @@
                 <span> Genre: {{ $movie->genre }} </span>
             </div>
             <p> {{ $movie->body }} </p>
-            <a class="btn btn-info" href="{{ URL::previous() }}">Back</a>
+            <a class="btn btn-info" href="/movies/">Back</a>
         </div>
 
         <div class="col-md-12 reviews">
@@ -24,10 +24,11 @@
             @foreach($movie->reviews as $review)
 
                 <div class="wrapper">
-                    <div class="col-md-3 review_block">
+                    <div class="col-md-11 review_block">
+                        <p class="pull-right">{{ $review->created_at }}</p>
                         <p>{{ $review->body }}</p>
                         <span> {{ $review->rating }}</span>
-                        <a href="#" class="username_review">{{ $review->user->name }}</a>
+                        <a href="#" class="pull-right">{{ $review->user->name }}</a>
                     </div>
                 </div>
             
@@ -35,21 +36,30 @@
 
             <div class="col-md-12 form_block">
 
+                @if (count($errors))
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger col-md-12" role="alert">
+                                {{$error}}
+                            </div>
+                        @endforeach
+                @endif
+
                 <form method="POST" action="/movies/{{ $movie->id }}/">
                     {{ csrf_field() }}
                     <div class="form-group col-md-6 review_field">
-                        <h4>Add a review</h4>
-                        <textarea name="body" class="form-control"></textarea>
+                        <h4>Add a review:</h4>
+                        <textarea name="body" class="form-control" placeholder="This is an awesome movie">{{old('body')}}</textarea>
                     </div>
 
-                    <div class="form-group rating col-md-2">
-                        <h4>Rate: 0-10</h4>
-                        <input type="text" name="rating" class="form-control" maxlength="2">
+                    <div class="form-group rating col-md-1">
+                        <h4> Rate:</h4>
+                        <input type="number" name="rating" class="form-control" min="0" max="10" placeholder="7" value="{{old('rating')}}">
                     </div>
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-info">Add</button>
                     </div>
                 </form>
+
             </div>
 
         </div>

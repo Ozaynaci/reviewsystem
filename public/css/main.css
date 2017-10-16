@@ -68,10 +68,6 @@ img.rounded.mx-auto.d-block {
     margin: 0 -50px;
 }
 
-.rating {
-    width: 5%;
-}
-
 .review_block {
     margin: 40px !important;
 }
@@ -87,5 +83,18 @@ img.rounded.mx-auto.d-block {
 }
 
 .form_block {
-    margin-bottom: 80px;
+    margin: 0 -15px 80px -15px;
+    padding: 0 !important;
+}
+
+.form_block h4 {
+    padding: 0 15px;
+}
+
+.form-group h4 {
+    padding: 0;
+}
+
+.username_review {
+    margin-left:10px;
 }

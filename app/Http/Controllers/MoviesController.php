@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Movie;
+use App\Review;
 use App\User;
 use Illuminate\Http\Request;
 

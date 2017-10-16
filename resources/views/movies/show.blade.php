@@ -15,6 +15,7 @@
                 <span> Genre: {{ $movie->genre }} </span>
             </div>
             <p> {{ $movie->body }} </p>
+            <a class="btn btn-info" href="{{ URL::previous() }}">Back</a>
         </div>
 
         <div class="col-md-12 reviews">
@@ -26,6 +27,7 @@
                     <div class="col-md-3 review_block">
                         <p>{{ $review->body }}</p>
                         <span> {{ $review->rating }}</span>
+                        <a href="#" class="username_review">{{ $review->user->name }}</a>
                     </div>
                 </div>
             
@@ -33,16 +35,18 @@
 
             <div class="col-md-12 form_block">
 
-                <h2>Add a review</h2>
-                <form method="POST" action="/movies/{{ $movie->id }}/reviews">
+                <form method="POST" action="/movies/{{ $movie->id }}/">
                     {{ csrf_field() }}
-                    <div class="form-group">
+                    <div class="form-group col-md-6 review_field">
+                        <h4>Add a review</h4>
                         <textarea name="body" class="form-control"></textarea>
                     </div>
-                    <div class="form-group rating">
-                        <span>Rate: <input type="text" name="rating" class="form-control" maxlength="2" pattern="[0-10]"></span>
+
+                    <div class="form-group rating col-md-2">
+                        <h4>Rate: 0-10</h4>
+                        <input type="text" name="rating" class="form-control" maxlength="2">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-info">Add</button>
                     </div>
                 </form>

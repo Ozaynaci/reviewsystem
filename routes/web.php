@@ -11,7 +11,8 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function() {
+Route::group(['middleware' => ['web']], function() 
+{
 	Auth::routes();
 
 	Route::get('/', 'HomeController@index');
@@ -21,7 +22,10 @@ Route::group(['middleware' => ['web']], function() {
 	Route::post('/movies/{movie}/', 'ReviewsController@add');
 });
 
-Route::get('admin', ['middleware' => 'admin', function()
+Route::group(['middleware' => ['admin']], function()
 {
-	return view('admin.index');
-}]);
+	Route::get('/admin', 'UsersController@index');
+	Route::post('/admin', 'MoviesController@add');
+	Route::delete('/admin/{movie}', 'MoviesController@remove');
+	//return view('admin.index');
+});

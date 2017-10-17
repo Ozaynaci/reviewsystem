@@ -11,7 +11,10 @@ class ReviewsController extends Controller
 {
     public function add(Request $request, Movie $movie) {
 
-    	$this->validate($request, ['body' => 'required|min:10', 'rating' => 'required|max:2']);
+    	$this->validate($request, [
+    		'body' => 'required|min:10', 
+    		'rating' => 'required|max:2'
+    	]);
 
     	$review = new Review;
     	$review->by(Auth::user());
@@ -19,6 +22,8 @@ class ReviewsController extends Controller
     	$review->rating = $request->rating;
 
     	$movie->reviews()->save($review);
+
+    	flash('Your review was successfully added!')->success();
 
     	return back();
     }

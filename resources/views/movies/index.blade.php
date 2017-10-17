@@ -10,10 +10,6 @@
                 <p>You have been successfully logged in. Browse trough the collection of movies and write a review!</p>
             </div>
         </div>
-
-        @if ( Auth::user()->role == 0 )
-            Hi admin
-        @endif
     </div>
 
     <div class="row-fluid content col-md-12">

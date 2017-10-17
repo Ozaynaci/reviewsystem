@@ -119,3 +119,12 @@ img.rounded.mx-auto.d-block {
     margin-top: -10px;
     font-size: 10px;
 }
+
+.add_movie input,
+.add_movie textarea {
+    margin: 15px 0;
+}
+
+td img {
+    height: 80px;
+}

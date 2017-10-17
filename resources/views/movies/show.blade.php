@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('flash::message')
 
     <div class="row-fluid content col-md-12">
 
@@ -51,7 +52,7 @@
                         <textarea name="body" class="form-control" placeholder="This is an awesome movie">{{old('body')}}</textarea>
                     </div>
 
-                    <div class="form-group rating col-md-1">
+                    <div class="form-group rating col-md-2">
                         <h4> Rate:</h4>
                         <input type="number" name="rating" class="form-control" min="0" max="10" placeholder="7" value="{{old('rating')}}">
                     </div>

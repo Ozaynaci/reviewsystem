@@ -18,8 +18,11 @@ Route::group(['middleware' => ['web']], function()
 	Route::get('/', 'HomeController@index');
 	Route::get('/movies', 'MoviesController@index');
 	Route::get('/movies/{movie}', 'MoviesController@show');
-
 	Route::post('/movies/{movie}/', 'ReviewsController@add');
+
+	Route::get('/profile', 'UsersController@user');
+	Route::get('/profile/{review}/edit', 'ReviewsController@edit');
+	Route::patch('/profile/{review}', 'ReviewsController@patch');
 });
 
 Route::group(['middleware' => ['admin']], function()

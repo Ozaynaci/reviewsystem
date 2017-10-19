@@ -128,3 +128,12 @@ img.rounded.mx-auto.d-block {
 td img {
     height: 80px;
 }
+
+.table {
+    margin-bottom: 100px !important;
+}
+
+.table_movies,
+.table_users {
+    margin: 100px 0;
+}

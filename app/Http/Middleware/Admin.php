@@ -15,6 +15,6 @@ class Admin
             return $next($request);
         }
 
-        return redirect('/movies');
+        return redirect('/admin');
     }
 }

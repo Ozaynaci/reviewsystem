@@ -27,4 +27,17 @@ class ReviewsController extends Controller
 
     	return back();
     }
+
+    public function edit(Review $review)
+    {
+        return view('user.edit', compact('review'));
+    }
+
+    public function patch(Request $request, Review $review) 
+    {
+        $reviews = Review::all();
+        $review->update($request->all());
+        flash('Your review was successfully updated!, refresh page <a href="/profile">here</a>')->success();
+        return view('user.index', compact('reviews'));
+    }
 }

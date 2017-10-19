@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Movie;
+use App\Review;
 
 class UsersController extends Controller
 {
-    public function roles() {
+    public function admin() {
         return view('admin.index');   
     }
 
@@ -17,6 +18,12 @@ class UsersController extends Controller
     	$users = User::all();
     	$movies = Movie::all();
         return view('admin.index', compact('users', 'movies'));
+    }
+
+    public function user()
+    {
+    	$reviews = Review::all();
+    	return view('user.index', compact('reviews'));
     }
 
 }

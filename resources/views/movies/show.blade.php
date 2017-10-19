@@ -35,7 +35,13 @@
             
             @endforeach
 
+            @if(Auth::user()->role == 0)
+
             <div class="col-md-12 form_block">
+
+            </div>
+
+            @else
 
                 @if (count($errors))
                         @foreach ($errors->all() as $error)
@@ -60,8 +66,7 @@
                         <button type="submit" class="btn btn-info">Add</button>
                     </div>
                 </form>
-
-            </div>
+            @endif
 
         </div>
 

@@ -50,11 +50,12 @@ class MoviesController extends Controller
     }
 
     public function remove(Request $request, $id) {
-        
+
         $movie = Movie::find($id);
         $movie->delete();
 
         flash('Movie was successfully deleted!')->success();
+        
 
         return back();
     }

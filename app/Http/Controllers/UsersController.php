@@ -26,4 +26,34 @@ class UsersController extends Controller
     	return view('user.index', compact('reviews'));
     }
 
+    public function remove(Request $request, $id) {
+
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        flash('User was successfully deleted!')->success();
+
+        return back();
+    }
+
+    public function enable(User $user, $id) {
+
+        $user = User::findOrFail($id);
+        $user->status = 'on';
+        $user->update();
+
+        flash('Enabled '. $user->name)->success();
+        return back();
+    }
+
+    public function disable(User $user, $id) {
+
+        $user = User::findOrFail($id);
+        $user->status = 'off';
+        $user->update();
+
+        flash('Disabled '. $user->name)->success();
+        return back();
+    }
+
 }

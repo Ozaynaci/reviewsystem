@@ -43,6 +43,17 @@
 			      		<i class="fa fa-edit" aria-hidden="true"></i>
 			      	</a>
 			      </td>
+			      <td>
+			      	<form method="POST" action="/profile/{{ $review->id }}">
+			      		{{ method_field('DELETE') }}
+	  					{{ csrf_field() }}
+	  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+			      	<button type="submit" class="btn btn-danger">
+			      		<i class="fa fa-trash" aria-hidden="true"></i>
+			      	</button>
+			      	</form>
+			      </td>
 
 			    </tr>
 			@endif

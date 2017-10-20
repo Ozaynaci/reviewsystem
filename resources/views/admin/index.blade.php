@@ -16,18 +16,39 @@
 		      <th>Email</th>
 		      <th>Role</th>
 		      <th>Status</th>
+		      <th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		  	@foreach($users as $user)
-			    <tr>
-			      <td> {{ $user->id }} </td>
-			      <td> {{ $user->name }} </td>
-			      <td> {{ $user->email }} </td>
-			      <td> {{ $user->role }} </td>
+		  		<tr>
+					<td> {{ $user->id }} </td>
+					<td> {{ $user->name }} </td>
+					<td> {{ $user->email }} </td>
+					<td> {{ $user->role }} </td>
+					<td> {{ $user->status }} </td>
+					@if($user->status == 'off')
+						<td>
+							<form method="POST" action="/admin/{{ $user->id }}/enable">
+								{{ method_field('PATCH') }}
+			  					{{ csrf_field() }}
+			  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-			      <td><input type="checkbox" checked data-toggle="toggle" data-size="mini"></td>
-			    </tr>
+					      	<button type="submit" class="btn btn-primary" name="enable">Enable</button>
+					      	</form>
+					    <td>
+				    @else
+					    <td>
+							<form method="POST" action="/admin/{{ $user->id }}/disable">
+								{{ method_field('PATCH') }}
+			  					{{ csrf_field() }}
+			  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+					      	<button type="submit" class="btn btn-primary" name="disable">Disable</button>
+					      	</form>
+					    <td>
+				    @endif
+				</tr>
 		    @endforeach
 		  </tbody>
 		</table>
@@ -45,25 +66,25 @@
 		  </thead>
 		  <tbody>
 		  	@foreach($movies as $movie)
-				    <tr>
-				      <td> {{ $movie->id }} </td>
-				      <td> <img class="rounded" src="{{ $movie->image_url }}"> </td>
-				      <td> {{ $movie->title }} </td>
-				      <td> {{ $movie->year }} </td>
-				      <td> {{ $movie->genre }} </td>
-				      <td>
-				      	<form method="POST" action="/admin/{{ $movie->id }}">
-				      		{{ method_field('DELETE') }}
-		  					{{ csrf_field() }}
-		  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			    <tr>
+			      <td> {{ $movie->id }} </td>
+			      <td> <img class="rounded" src="{{ $movie->image_url }}"> </td>
+			      <td> {{ $movie->title }} </td>
+			      <td> {{ $movie->year }} </td>
+			      <td> {{ $movie->genre }} </td>
+			      <td>
+			      	<form method="POST" action="/admin/{{ $movie->id }}">
+			      		{{ method_field('DELETE') }}
+	  					{{ csrf_field() }}
+	  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				      	<button type="submit" class="btn btn-danger">
-				      		<i class="fa fa-trash" aria-hidden="true"></i>
-				      	</button>
-				      	</form>
-				      </td>
-				    </tr>
-			    @endforeach
+			      	<button type="submit" class="btn btn-danger">
+			      		<i class="fa fa-trash" aria-hidden="true"></i>
+			      	</button>
+			      	</form>
+			      </td>
+			    </tr>
+		    @endforeach
 		  </tbody>
 		</table>
 

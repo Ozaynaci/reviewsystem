@@ -4,6 +4,15 @@
 <div class="container">
     
     <div class="col-md-12">
+
+    	@if (count($errors))
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger col-md-12" role="alert">
+                    {{$error}}
+                </div>
+            @endforeach
+        @endif
+
     	<h1>Edit review</h1>
     	<br>
 

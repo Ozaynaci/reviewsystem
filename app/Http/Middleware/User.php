@@ -5,13 +5,11 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class Admin
+class User
 {
-
     public function handle($request, Closure $next)
     {
-
-        if (Auth::user() &&  Auth::user()->role == 0) {
+        if (Auth::user() &&  Auth::user()->role == 1) {
             return $next($request);
         }
 

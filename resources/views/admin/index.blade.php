@@ -8,6 +8,12 @@
             <h1>Control panel</h1>
         </div>
 
+        <div class="col-md-4 hidden_users">
+  			<a href="/admin/hidden/" class="btn btn-primary">
+  				Hidden users <span class="badge badge-primary badge-pill">{{ $userscount }}</span>
+  			</a>
+        </div>
+
         <table class="table table_users">
 		  <thead class="thead-inverse">
 		    <tr class="table-info">
@@ -27,6 +33,7 @@
 					<td> {{ $user->email }} </td>
 					<td> {{ $user->role }} </td>
 					<td> {{ $user->status }} </td>
+
 					@if($user->status == 'off')
 						<td>
 							<form method="POST" action="/admin/{{ $user->id }}/enable">
@@ -34,19 +41,21 @@
 			  					{{ csrf_field() }}
 			  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					      	<button type="submit" class="btn btn-primary" name="enable">Enable</button>
+					      		<button type="submit" class="btn btn-primary" name="enable">Enable</button>
 					      	</form>
-					    <td>
+					    </td>
 				    @else
-					    <td>
-							<form method="POST" action="/admin/{{ $user->id }}/disable">
-								{{ method_field('PATCH') }}
-			  					{{ csrf_field() }}
-			  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				    	@if($user->role == '1')
+						    <td>
+								<form method="POST" action="/admin/{{ $user->id }}/disable">
+									{{ method_field('PATCH') }}
+				  					{{ csrf_field() }}
+				  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					      	<button type="submit" class="btn btn-primary" name="disable">Disable</button>
-					      	</form>
-					    <td>
+						      		<button type="submit" class="btn btn-primary" name="disable">Disable</button>
+						      	</form>
+						    </td>
+						@endif
 				    @endif
 				</tr>
 		    @endforeach

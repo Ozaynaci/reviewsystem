@@ -36,4 +36,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function credentials(\Illuminate\Http\Request $request)
+     {
+        $credentials = $request->only($this->username(), 'password');
+        flash('Users has been disabled, please contact the admin')->error();
+        return array_add($credentials, 'status', 'on');
+     }
 }

@@ -23,7 +23,6 @@
             <h2>Reviews</h2>
 
             @foreach($movie->reviews as $review)
-
                 <div class="wrapper">
                     <div class="col-md-11 review_block">
                         <p class="pull-right">{{ $review->created_at }}</p>

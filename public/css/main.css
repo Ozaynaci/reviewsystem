@@ -110,6 +110,10 @@ img.rounded.mx-auto.d-block {
     margin-left: 15px;
 }
 
+.login .alert.alert-danger {
+    margin-left: 0;
+}
+
 .review_block p.pull-right {
     font-style: normal;
     font-weight: 900;
@@ -136,4 +140,8 @@ td img {
 .table_movies,
 .table_users {
     margin: 100px 0;
+}
+
+.hidden_users {
+    margin-top: 40px;
 }

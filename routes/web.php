@@ -36,4 +36,5 @@ Route::group(['middleware' => ['admin']], function()
 	Route::delete('/admin/{movie}', 'MoviesController@remove');
 	Route::patch('/admin/{user}/disable/', 'UsersController@disable');
 	Route::patch('/admin/{user}/enable/', 'UsersController@enable');
+	Route::get('/admin/hidden/', 'UsersController@hiddenUsers');
 });

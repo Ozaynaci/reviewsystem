@@ -15,9 +15,10 @@ class UsersController extends Controller
 
     public function index()
     {
-    	$users = User::all();
+    	$users = User::all()->where('status', 'on');
+        $userscount = User::where('status', 'off')->count('status');
     	$movies = Movie::all();
-        return view('admin.index', compact('users', 'movies'));
+        return view('admin.index', compact('users', 'userscount', 'movies'));
     }
 
     public function user()
@@ -36,7 +37,7 @@ class UsersController extends Controller
         return back();
     }
 
-    public function enable(User $user, $id) {
+    public function enable($id) {
 
         $user = User::findOrFail($id);
         $user->status = 'on';
@@ -46,7 +47,7 @@ class UsersController extends Controller
         return back();
     }
 
-    public function disable(User $user, $id) {
+    public function disable($id) {
 
         $user = User::findOrFail($id);
         $user->status = 'off';
@@ -54,6 +55,11 @@ class UsersController extends Controller
 
         flash('Disabled '. $user->name)->success();
         return back();
+    }
+
+    public function hiddenUsers() {
+        $users = User::all()->where('status', 'off');
+        return view('admin.hidden', compact('users'));
     }
 
 }

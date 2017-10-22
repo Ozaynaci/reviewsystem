@@ -4,43 +4,48 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Movie;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
     protected $redirectTo = '/movies';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
     protected function credentials(\Illuminate\Http\Request $request)
-     {
-        $credentials = $request->only($this->username(), 'password');
-        flash('Users has been disabled, please contact the admin')->error();
-        return array_add($credentials, 'status', 'on');
-     }
+    {
+        $credentials = $request->only('email', 'password');
+
+        return $request->only('email', 'password') + ['status' => 'on'];
+    }
+
+    protected function loginValidation($request)
+    {
+        $rules = array(
+          'email'      => 'required|email|max:255|unique:users',
+          'password'   => 'required|min:6|confirmed',
+    );
+        $this->validate( $request , $rules);
+    }
+
+
+    protected function getLoginCredentials(Request $request)
+    {
+        $validator = $this->loginValidation($request);
+        if($validator->passes())
+        {
+         return[
+          'email'    => Request::input('email'),
+          'password' => Request::input('password')
+        ];
+        return true;
+
+        } else {
+          return redirect()->back()->withErrors();
+       }
+    }
 }

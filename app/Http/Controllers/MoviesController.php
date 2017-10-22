@@ -17,7 +17,14 @@ class MoviesController extends Controller
 
     public function index()
     {
-    	$movies = Movie::all();
+
+        $search = \Request::get('search');
+ 
+        $movies = Movie::where('title','like','%'.$search.'%')
+            ->orderBy('title')
+            ->paginate(20);
+        $count = Movie::count($movies);
+
         return view('movies.index', compact('movies'));
     }
 

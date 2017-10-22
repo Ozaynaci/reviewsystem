@@ -28,6 +28,9 @@
 		    </tr>
 		  </thead>
 		  <tbody>
+		  	@if (!$users->count())
+				<div class="alert alert-info hidden_alert" role="alert">No hidden accounts found!</div>
+			@else
 		  	@foreach($users as $user)
 		  		<tr>
 					<td> {{ $user->id }} </td>
@@ -46,6 +49,7 @@
 				    </td>
 				</tr>
 			@endforeach
+			@endif
 		  </tbody>
 		</table>
 	</div>

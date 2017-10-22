@@ -20,7 +20,7 @@
 	        {{ csrf_field() }}
 	        {{ method_field('PATCH') }}
 	        <div class="form-group col-md-6 review_field">
-	            <textarea name="body" class="form-control" placeholder="This is an awesome movie">{{ $review->body }}</textarea>
+	            <textarea name="body" class="form-control">{{ $review->body }}</textarea>
 	        </div>
 
 	        <div class="form-group rating col-md-2">

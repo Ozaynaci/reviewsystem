@@ -39,7 +39,7 @@ class ReviewsController extends Controller
 
         $this->validate($request, [
             'body' => 'required|min:10', 
-            'rating' => 'required|max:2'
+            'rating' => 'required|max:2',
         ]);
 
         $reviews = Review::all();

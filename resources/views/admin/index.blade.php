@@ -3,13 +3,11 @@
 @section('content')
 <div class="container">
 	@include('flash::message')
-    <div class="col-md-12">
-        <div class="welcome">
+    <div class="col-md- admin_page">
             <h1>Control panel</h1>
-        </div>
 
         <div class="col-md-4 hidden_users">
-  			<a href="/admin/hidden/" class="btn btn-primary">
+  			<a href="/admin/hidden/" class="btn btn-info">
   				Hidden users <span class="badge badge-primary badge-pill">{{ $userscount }}</span>
   			</a>
         </div>
@@ -41,7 +39,7 @@
 			  					{{ csrf_field() }}
 			  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					      		<button type="submit" class="btn btn-primary" name="enable">Enable</button>
+					      		<button type="submit" class="btn btn-info" name="enable">Enable</button>
 					      	</form>
 					    </td>
 				    @else
@@ -52,7 +50,7 @@
 				  					{{ csrf_field() }}
 				  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						      		<button type="submit" class="btn btn-primary" name="disable">Disable</button>
+						      		<button type="submit" class="btn btn-info" name="disable">Disable</button>
 						      	</form>
 						    </td>
 						@endif
@@ -97,8 +95,8 @@
 		  </tbody>
 		</table>
 
-		<div class="col-md-12">
-            <h2>Add movie</h2>
+		<div class="col-md-12 add_movie">
+            <h3>Add movie</h3>
 
             <div class="col-md-12 form_block">
 
@@ -117,7 +115,7 @@
                         Description: <textarea name="body" class="form-control" placeholder="The Lord of the Rings is an epic high fantasy...">{{old('body')}}</textarea>
                         Year: <input type="text" name="year" class="form-control" placeholder="2001">
                         Genre: <input type="text" name="genre" class="form-control" placeholder="Fantasy">
-                        Image url<input type="text" name="image_url" class="form-control" placeholder="https://">
+                        Image url: <input type="text" name="image_url" class="form-control" placeholder="https://">
                     </div>
 
                     <div class="form-group col-md-12">

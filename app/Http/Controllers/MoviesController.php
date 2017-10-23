@@ -28,9 +28,9 @@ class MoviesController extends Controller
         return view('movies.index', compact('movies'));
     }
 
-    public function show(Movie $movie, User $users) 
+    public function show(Movie $movie, User $users, Review $reviews) 
     {
-        return view('movies.show', compact('movie', 'users'));
+        return view('movies.show', compact('movie', 'users', 'reviews'));
     }
 
     public function add(Request $request) {

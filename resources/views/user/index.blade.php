@@ -5,11 +5,16 @@
     
 	@if(Auth::user()->role == 1)
 
-		<div class="alert alert-info" role="alert">
-	    	<h4 class="alert-heading">This is your personal page</h4>
-	        <hr>
-	        <p>Reviews can be viewed & edited on this page</p>
-	    </div>
+		<div class="welcome">
+			
+			<div class="alert alert-info" role="alert">
+		    	<h4 class="alert-heading">This is your personal page</h4>
+		        <hr>
+		        <p>Reviews can be viewed & edited on this page</p>
+	    	</div>
+
+		</div>
+
     @endif
 
     @include('flash::message')

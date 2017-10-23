@@ -25,7 +25,7 @@
             {{ csrf_field() }}
             <div class="form-group col-md-5 input-group">
                 <input type="text" name="search" placeholder="Search movie" class="form-control"></input>
-                <span class="input-group-btn">
+                <span class="input-group-btn search_btn">
                     <button class="btn btn-info" type="submit">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
@@ -39,9 +39,11 @@
             @foreach ($movies as $movie)
 
                 <div class="col-md-3 movie">
-                    <img src="{{ $movie->image_url }}" class="rounded mx-auto d-block" alt="...">
-                    <h4>{{ $movie->title }}</h4>
-                    <a href="{{ $movie->path() }}">More information</a>
+                    <a href="{{ $movie->path() }}">
+                        <img src="{{ $movie->image_url }}" class="rounded mx-auto d-block" alt="...">
+                        <h4>{{ $movie->title }}</h4>
+                        <p> {{ $movie->year }} </p>
+                    </a>
                 </div>
 
             @endforeach

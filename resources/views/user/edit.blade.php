@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     
-    <div class="col-md-12">
+    <div class="col-md-12 edit">
 
     	@if (count($errors))
             @foreach ($errors->all() as $error)
@@ -13,7 +13,7 @@
             @endforeach
         @endif
 
-    	<h1>Edit review</h1>
+    	<h4>Edit review</h4>
     	<br>
 
     	<form method="POST" action="/profile/{{$review->id}}">
@@ -24,7 +24,7 @@
 	        </div>
 
 	        <div class="form-group rating col-md-2">
-	            <input type="number" name="rating" class="form-control" min="0" max="10" value="{{ $review->rating }}">
+	            <input type="number" name="rating" class="form-control rate" min="0" max="10" value="{{ $review->rating }}">
 	        </div>
 	        <div class="form-group col-md-12">
 	            <a href="/profile" class="btn btn-info">Back</a>

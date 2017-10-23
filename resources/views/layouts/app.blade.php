@@ -55,24 +55,21 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li>
-                                <a href="/movies" class="btn btn-light home">
-                                    <i class="fa fa-home" aria-hidden="true"></i>
-                                </a>
+                            <li class="account">
+                                <a>Hi, {{ Auth::user()->name }}</a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                            <li>
+                                <a href="/movies">Home</a>
+                            </li>
+                            <li>
+                                @if( Auth::user()->role == 0)
+                                    <a href="/admin">Control panel</a>
+                                @else
+                                    <a href="/profile">My reviews</a>
+                                @endif
+                            </li>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        @if( Auth::user()->role == 0)
-                                            <a href="/admin">Admin page</a>
-                                        @else
-                                            <a href="/profile">Overview</a>
-                                        @endif
-                                    </li>
+                                
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -84,8 +81,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                </ul>
-                            </li>
+                            
                         @endguest
                     </ul>
                 </div>

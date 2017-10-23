@@ -22,17 +22,22 @@
         <div class="col-md-12 reviews">
             <h2>Reviews</h2>
 
-            @foreach($movie->reviews as $review)
-                <div class="wrapper">
-                    <div class="col-md-11 review_block">
-                        <p class="pull-right">{{ $review->created_at }}</p>
-                        <p>{{ $review->body }}</p>
-                        <span> {{ $review->rating }}</span>
-                        <h4 class="pull-right">{{ $review->user->name }}</h4>
+            @if (!$reviews->count())
+                <div class="alert alert-info hidden_alert" role="alert">No reviews found!</div>
+            @else
+
+                @foreach($movie->reviews as $review)
+                    <div class="wrapper">
+                        <div class="col-md-11 review_block">
+                            <p class="pull-right">{{ $review->created_at }}</p>
+                            <p>{{ $review->body }}</p>
+                            <span> {{ $review->rating }}</span>
+                            <h4 class="pull-right">{{ $review->user->name }}</h4>
+                        </div>
                     </div>
-                </div>
-            
-            @endforeach
+                
+                @endforeach
+            @endif
 
             @if(Auth::user()->role == 0)
 
@@ -59,9 +64,9 @@
 
                     <div class="form-group rating col-md-2">
                         <h4> Rate:</h4>
-                        <input type="number" name="rating" class="form-control" min="0" max="10" placeholder="7" value="{{old('rating')}}">
+                        <input type="number" name="rating" class="form-control rate" min="0" max="10" placeholder="7" value="{{old('rating')}}">
                     </div>
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-12 add_btn">
                         <button type="submit" class="btn btn-info">Add</button>
                     </div>
                 </form>

@@ -5,13 +5,11 @@
 <div class="container">
 
 	@include('flash::message')
-    <div class="col-md-12">
-        <div class="welcome">
-            <h1>Control panel</h1>
-        </div>
+    <div class="col-md-12 admin_page">
+            <h1>Hidden accounts</h1>
 
         <div class="col-md-4 hidden_users">
-  			<a href="/admin/" class="btn btn-primary">
+  			<a href="/admin/" class="btn btn-info">
   				Back
   			</a>
         </div>
@@ -44,7 +42,7 @@
 		  					{{ csrf_field() }}
 		  					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				      		<button type="submit" class="btn btn-primary" name="enable">Enable</button>
+				      		<button type="submit" class="btn btn-info" name="enable">Enable</button>
 				      	</form>
 				    </td>
 				</tr>

@@ -117,7 +117,7 @@
                         Description: <textarea name="body" class="form-control" placeholder="The Lord of the Rings is an epic high fantasy...">{{old('body')}}</textarea>
                         Year: <input type="text" name="year" class="form-control" placeholder="2001">
                         Genre: <input type="text" name="genre" class="form-control" placeholder="Fantasy">
-                        Image url<input type="text" name="image_url" class="form-control" placeholder="Paste image url here">
+                        Image url<input type="text" name="image_url" class="form-control" placeholder="https://">
                     </div>
 
                     <div class="form-group col-md-12">

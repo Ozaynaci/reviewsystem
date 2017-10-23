@@ -28,7 +28,7 @@
                         <p class="pull-right">{{ $review->created_at }}</p>
                         <p>{{ $review->body }}</p>
                         <span> {{ $review->rating }}</span>
-                        <a href="#" class="pull-right">{{ $review->user->name }}</a>
+                        <h4 class="pull-right">{{ $review->user->name }}</h4>
                     </div>
                 </div>
             
@@ -50,7 +50,7 @@
                         @endforeach
                 @endif
 
-                <form method="POST" action="/movies/{{ $movie->id }}/">
+                <form method="POST" action="/movies/{{ $movie->id }}">
                     {{ csrf_field() }}
                     <div class="form-group col-md-6 review_field">
                         <h4>Add a review:</h4>
